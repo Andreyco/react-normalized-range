@@ -20,10 +20,9 @@ module.exports = React.createClass({
     };
   },
 
-  onMouseUp(event) {
-    this.props.onChange(this.changeEvent);
-
-    this.props.onMouseUp(event);
+  onChange(event) {
+    event.persist();
+    this.changeEvent = event;
   },
 
   onKeyUp(event) {
@@ -34,9 +33,10 @@ module.exports = React.createClass({
     this.props.onKeyUp(event);
   },
 
-  onChange(event) {
-    event.persist();
-    this.changeEvent = event;
+  onMouseUp(event) {
+    this.props.onChange(this.changeEvent);
+
+    this.props.onMouseUp(event);
   },
 
   render() {
