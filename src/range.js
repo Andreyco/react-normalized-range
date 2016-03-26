@@ -16,10 +16,6 @@ module.exports = React.createClass({
     }
   },
 
-  onInput(event) {
-    this.props.onInput(event);
-  },
-
   onChange(event) {
     event.persist();
     this.changeEvent = event;
@@ -31,7 +27,6 @@ module.exports = React.createClass({
       this.props,
       {
         type: 'range',
-        onInput: this.onInput,
         onChange: this.onChange,
         onMouseUp: this.onMouseUp,
         onKeyUp: this.onKeyUp,
