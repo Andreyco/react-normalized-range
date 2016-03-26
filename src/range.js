@@ -15,17 +15,23 @@ module.exports = React.createClass({
   getDefaultProps() {
     return {
       onChange: () => {},
+      onKeyUp: () => {},
+      onMouseUp: () => {},
     };
   },
 
   onMouseUp(event) {
     this.props.onChange(this.changeEvent);
+
+    this.props.onMouseUp(event);
   },
 
   onKeyUp(event) {
     if (['ArrowLeft', 'ArrowRight'].indexOf(event.key) > -1) {
       this.props.onChange(this.changeEvent);
     }
+
+    this.props.onKeyUp(event);
   },
 
   onChange(event) {
