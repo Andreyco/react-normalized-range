@@ -4,7 +4,19 @@ var extend =  require("./extend");
 module.exports = React.createClass({
   displayName: "NormalizedRangeInput",
 
+  propTypes: {
+    onChange: React.PropTypes.func,
+    onKeyUp: React.PropTypes.func,
+    onMouseUp: React.PropTypes.func,
+  },
+
   changeEvent: undefined,
+
+  getDefaultProps() {
+    return {
+      onChange: () => {},
+    };
+  },
 
   onMouseUp(event) {
     this.props.onChange(this.changeEvent);
@@ -28,8 +40,8 @@ module.exports = React.createClass({
       {
         type: 'range',
         onChange: this.onChange,
-        onMouseUp: this.onMouseUp,
         onKeyUp: this.onKeyUp,
+        onMouseUp: this.onMouseUp,
       }
     );
 
