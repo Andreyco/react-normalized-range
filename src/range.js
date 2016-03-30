@@ -1,5 +1,5 @@
-var React = require("react");
-var extend =  require("./extend");
+const React = require("react");
+const extend =  require("./extend");
 
 module.exports = React.createClass({
   displayName: "NormalizedRangeInput",
@@ -40,7 +40,7 @@ module.exports = React.createClass({
   },
 
   render() {
-    var props = extend(
+    const props = extend(
       {},
       this.props,
       {
